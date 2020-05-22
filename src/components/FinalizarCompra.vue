@@ -11,6 +11,7 @@
 import UsuarioForm from "@/components/UsuarioForm.vue";
 import { api } from "@/services.js";
 import { mapState } from "vuex";
+
 export default {
   name: "FinalizarCompra",
   components: {
@@ -22,7 +23,7 @@ export default {
     compra() {
       return {
         comprador_id: this.usuario.email,
-        vendedor_id: this.usuario.usuario_id,
+        vendedor_id: this.produto.usuario_id,
         produto: this.produto,
         endereco: {
           cep: this.usuario.cep,
@@ -38,7 +39,7 @@ export default {
   methods: {
     criarTransacao() {
       return api.post("/transacao", this.compra).then(() => {
-        this.$router.push({ name: "Compras" });
+        this.$router.push({ name: "compras" });
       });
     },
     async criarUsuario() {
@@ -69,6 +70,7 @@ h2 {
   margin-top: 40px;
   margin-bottom: 20px;
 }
+
 .btn {
   background: #e80;
 }

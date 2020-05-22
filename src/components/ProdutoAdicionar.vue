@@ -1,19 +1,20 @@
 <template>
   <form class="adicionar-produto">
     <label for="nome">Nome</label>
-    <input type="text" name="nome" id="nome" v-model="produto.nome" />
+    <input id="nome" name="nome" type="text" v-model="produto.nome">
     <label for="preco">Preço (R$)</label>
-    <input type="number" name="preco" id="preco" v-model="produto.preco" />
+    <input id="preco" name="preco" type="number" v-model="produto.preco">
     <label for="fotos">Fotos</label>
-    <input type="file" name="fotos" id="fotos" ref="fotos" />
-    <label for="descricao">Descrição</label>
-    <textarea name="descricao" id="descricao" v-model="produto.descricao"></textarea>
-    <input type="button" value="Adicionar Produto" class="btn" @click.prevent="adicionarProduto" />
+    <input id="fotos" name="fotos" type="file" ref="fotos">
+    <label for="preco">Descrição</label>
+    <textarea id="preco" name="preco" v-model="produto.descricao"></textarea>
+    <input class="btn" type="button" value="Adicionar Produto" @click.prevent="adicionarProduto">
   </form>
 </template>
 
 <script>
 import { api } from "@/services.js";
+
 export default {
   name: "ProdutoAdicionar",
   data() {
@@ -48,6 +49,7 @@ export default {
   align-items: center;
   margin-bottom: 60px;
 }
+
 .btn {
   grid-column: 2;
 }

@@ -16,7 +16,9 @@ export default {
 <style scoped>
 .loading {
   text-align: center;
+  margin-top: 80px;
 }
+
 .loading span {
   display: inline-block;
   width: 10px;
@@ -30,12 +32,15 @@ export default {
 .loading span:nth-child(1) {
   animation-delay: 0.1s;
 }
+
 .loading span:nth-child(2) {
   animation-delay: 0.2s;
 }
+
 .loading span:nth-child(3) {
   animation-delay: 0.3s;
 }
+
 .loading span:nth-child(4) {
   animation-delay: 0.4s;
 }
