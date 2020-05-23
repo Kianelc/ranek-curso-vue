@@ -1,23 +1,36 @@
 <template>
   <div id="app">
-    <TheHeader/>
+    <TheHeader />
     <main id="main">
       <transition mode="out-in">
-        <router-view/>
+        <router-view />
       </transition>
     </main>
-    <TheFooter/>
+    <TheFooter />
   </div>
 </template>
 
 <script>
 import TheHeader from "@/components/TheHeader.vue";
 import TheFooter from "@/components/TheFooter.vue";
+import { api } from "@/services.js";
 
 export default {
   components: {
     TheHeader,
     TheFooter
+  },
+  created() {
+    if (window.localStorage.token) {
+      api
+        .validateToken()
+        .then(() => {
+          this.$store.dispatch("getUsuario");
+        })
+        .catch(() => {
+          window.localStorage.removeItem("token");
+        });
+    }
   }
 };
 </script>
@@ -77,6 +90,12 @@ img {
   transform: scale(1.1);
 }
 
+.btn-disabled,
+.btn-disabled:hover {
+  background: #bbc;
+  transform: scale(1);
+}
+
 #app {
   display: flex;
   min-height: 100vh;
@@ -101,6 +120,7 @@ textarea {
   font-size: 1rem;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   margin-bottom: 15px;
+  width: 100%;
 }
 
 input:hover,
