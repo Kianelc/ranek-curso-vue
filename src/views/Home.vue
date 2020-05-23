@@ -1,8 +1,8 @@
 <template>
   <section>
     <h1>👍 Compre ou Venda 👎</h1>
-    <ProdutosBuscar/>
-    <ProdutosLista/>
+    <ProdutosBuscar />
+    <ProdutosLista />
   </section>
 </template>
 
@@ -15,6 +15,9 @@ export default {
   components: {
     ProdutosBuscar,
     ProdutosLista
+  },
+  created() {
+    document.title = "Ranek";
   }
 };
 </script>
